@@ -18,11 +18,6 @@ Baza danych zawiera dane demograficzne i społeczne Polski w latach 2014-2023. O
 
 ## Wczytanie zbioru
 ```r
-# Załadowanie wymaganej biblioteki
 library(readxl)
-
-# Wczytanie danych
 data <- read_excel("Data/baza.xlsx")
-
-# Wyświetlenie danych
 print(data)
