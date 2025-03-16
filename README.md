@@ -4,7 +4,7 @@
 Mateusz Chorab, Mikołaj Abram  
 
 ## Data
-`r Sys.Date()`
+16.03.2025
 
 ## Opis bazy danych
 Baza danych zawiera dane demograficzne i społeczne Polski w latach 2014-2023. Obejmuje kluczowe wskaźniki dotyczące **populacji**, **przyrostu naturalnego**, **bezrobocia**, **średniej długości trwania życia**.  
