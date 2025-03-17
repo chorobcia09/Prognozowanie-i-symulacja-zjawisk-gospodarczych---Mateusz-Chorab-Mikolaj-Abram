@@ -13,12 +13,12 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE) # ustawienie, że kod R jest zawsze pokazywany
+knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
 # Opis bazy danych
-Baza danych zawiera dane demograficzne i społeczne Polski w latach 2014-2023. Objemuje kluczowe wskaźniki dotyczące **populacji**, **przyrostu naturalnego**, **bezrobocia**, **średniej długości trawania życia**.
+Baza danych zawiera dane demograficzne i społeczne Polski w latach 2014-2023. Objemuje kluczowe wskaźniki dotyczące **populacji**, **przyrostu naturalnego**, **bezrobocia**, **średniej długości trawania życia**. </br >
 Źródła: https://stat.gov.pl/ 
 
 ## Zawarte wskaźniki 
