@@ -35,7 +35,6 @@ Godzinowy ruch drogowy na autostradzie międzystanowej I-94 w kierunku zachodnim
 ``` r
 library(readxl)
 data <- read_excel("baza.xlsx")
-data
 ```
 
 <div data-pagedtable="false">
