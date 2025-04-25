@@ -1,7 +1,7 @@
 ---
 title: "Projekt"
 author: "Mateusz Chorab, Mikołaj Abram"
-date: "2025-03-17"
+date: "2025-04-25"
 output:
   html_document:
     toc: true
@@ -44,5 +44,61 @@ data
   </script>
 </div>
 
+### Korelogramy na podstawie funkcji autokrelacji (ACF)
 
+
+``` r
+acf(data, lag.max = 100)
+```
+
+![](dokumentacja_files/figure-html/unnamed-chunk-2-1.png)<!-- -->![](dokumentacja_files/figure-html/unnamed-chunk-2-2.png)<!-- -->![](dokumentacja_files/figure-html/unnamed-chunk-2-3.png)<!-- -->![](dokumentacja_files/figure-html/unnamed-chunk-2-4.png)<!-- -->
+
+Wykresy przedstawiają funkcję autokorelacji (ACF) dla poszczególnych zmiennych:
+
+- **holiday** - wartości bliskie zeru, co sugeruje brak silnej autokorelacji (brak okresowości w występowaniu świąt)
+- **temp** - powolony spadek ACF, co może wskazywać na trend
+- **rain_1h** i **snow_1h** - słabe autokorelacje
+- **clouds_all** - niewielka autokorelacja, ale widoczne krótkoterminowe zależności
+- **weather_main** – brak silnej autokorelacji, co oznacza, że pogoda często się zmienia.
+- **traffic_volume** – silna autokorelacja z wyraźną sezonowością (np. powtarzające się wzorce w ciągu dnia i tygodnia).
+
+Wnioski:
+
+- Temperatura wskazuje najsliniejszą autokorelację, co sugeruje cykliczność (np. dobowe lub roczne wahania).
+- Opady i święta nie mają wyraźniej struktury autokorelacyjnej.
+- Ruch drogowy ma silną strukturę czasową (np. godziny szczytu).
+- Pogoda jest bardziej zmienna i nie wykazuje długoterminowych wzorców autokorelacyjnych.
+
+Wykresy przedstawiają zależności między wybranymi parami zmiennych, np.:
+
+- **hldy & trf_** (święta a ruch drogowy) – brak silnej korelacji, co oznacza, że święta nie mają wyraźnego wpływu na natężenie ruchu w długim okresie.
+- **temp & trf_** (temperatura a ruch) – słaba korelacja, ale widoczne są pewne sezonowe zależności (np. większy ruch przy wyższych temperaturach).
+- **rn_1 & trf_** (opady a ruch) – ujemna korelacja przy opóźnieniach (np. wzrost opadów może zmniejszać ruch w kolejnych godzinach).
+- **wthr_m & trf_** (główne warunki pogodowe a ruch) - brak silnej korelacji, co sugeruje, że ogólna kategoria pogody (np. "deszczowo") nie wpływa znacząco na ruch w długim okresie.
+- **wthr_d & trf_** (szczegółowy opis pogody a ruch) - podobnie jak wyżej, brak wyraźnej zależności.
+- **dt_t & trf_** (data/godzina a ruch) – silna autokorelacja (sezonowość dobowa i tygodniowa).
+
+Wnioski:
+
+- Pogoda (temperatura, opady) ma pewien wpływ na ruch, ale nie jest to silna zależność.
+- Święta nie wykazują istotnej korelacji z ruchem w ujęciu autokorelacyjnym.
+- Czynniki czasowe (godzina, dzień tygodnia) mają większy wpływ na ruch niż warunki pogodowe.
+- Pogoda może mieć krótkoterminowy wpływ (np. opady zmniejszają ruch), ale nie tworzy długotrwałych wzorców.
+
+Podsumowanie: 
+
+- **Najsilniejsza autokorelacja:** traffic_volume (ruch drogowy) – wskazuje na cykliczność dobową i tygodniową.
+- **Słabe autokorelacje:** czynniki pogodowe (rain_1h, snow_1h, clouds_all), co sugeruje ich krótkoterminowy wpływ.
+- **Brak silnych korelacji między świętami a ruchem** – święta nie mają istotnego wpływu na długoterminowe natężenie ruchu.
+
+### Korelogramy na podstawie funkcji autokorelacji cząstkowych (PACF)
+
+``` r
+pacf(data,lag.max = 100)
+```
+
+![](dokumentacja_files/figure-html/unnamed-chunk-3-1.png)<!-- -->![](dokumentacja_files/figure-html/unnamed-chunk-3-2.png)<!-- -->![](dokumentacja_files/figure-html/unnamed-chunk-3-3.png)<!-- -->![](dokumentacja_files/figure-html/unnamed-chunk-3-4.png)<!-- -->
+
+
+Wykresy przedstawiają częściową autokorelację (PACF) dla kluczowych zmiennych:
 
